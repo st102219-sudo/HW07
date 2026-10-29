@@ -1,0 +1,372 @@
+@charset "UTF-8";
+/* 
+   HW07 外部樣式表 (External Stylesheet)
+   專案主題：歷史建築帝國製糖廠臺中營業所（湧泉公園）專題報導
+   作者：葉沛欣（學號：HW07_d1446095）
+   更新日期：2026 年 10 月 29 日
+   
+   【相對路徑說明】：
+   若未來在此 CSS 中使用 background-image: url(...) 載入本機圖片，
+   相對路徑的起點是「css 資料夾」，因此需要使用 "../images/..." 回到上一層再進入圖片資料夾。
+*/
+
+/* ==========================================
+   1. 全域設定與盒子模型重設
+   ========================================== */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    overflow-y: auto; /* 確保瀏覽器縱向卷軸正常可滑動 */
+}
+
+body {
+    margin: 0;
+    padding: 20px 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.85;
+    color: #333333;
+    background-color: #f7f6f2; /* 溫潤的米紙色背景 */
+}
+
+/* 全頁版面置中容器 */
+.page-wrapper {
+    max-width: 860px;
+    margin: 0 auto 40px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e2d9;
+}
+
+/* ==========================================
+   2. 頁首與導覽區塊
+   ========================================== */
+#top {
+    background-color: #4a3427; /* 沉穩的烘焙深褐主色 */
+    color: #ffffff;
+    padding: 40px 32px 30px;
+    border-bottom: 4px solid #b35422;
+    border-radius: 8px 8px 0 0;
+}
+
+#top h1 {
+    margin: 0 0 12px;
+    font-size: 1.85rem;
+    letter-spacing: 0.05em;
+    color: #fdfaf5;
+}
+
+#top p {
+    margin: 6px 0;
+    color: #ded6cb;
+    font-size: 0.95rem;
+}
+
+/* 導覽目錄 nav 區塊樣式 */
+nav {
+    background-color: #f0eee6;
+    padding: 20px 32px;
+    border-bottom: 1px solid #e0ded5;
+}
+
+nav h2 {
+    margin: 0 0 12px;
+    font-size: 1.15rem;
+    color: #4a3427;
+}
+
+nav ul {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+}
+
+nav li {
+    font-size: 0.95rem;
+}
+
+/* 互動超連結設定（:hover 與鍵盤 :focus-visible） */
+a {
+    color: #a84617;
+    text-decoration: none;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+a:hover {
+    color: #6d2806;
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 3px solid #b35422;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* ==========================================
+   3. 主要報導內容區 (Main & Article)
+   ========================================== */
+main {
+    padding: 32px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 1.45rem;
+    color: #2e4a3d; /* 森林深綠副色 */
+    border-left: 5px solid #2e4a3d;
+    padding-left: 12px;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+h3 {
+    font-size: 1.15rem;
+    color: #4a3427;
+    margin-top: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 0 0 16px;
+    color: #444444;
+}
+
+ul, ol {
+    margin: 0 0 20px;
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+hr {
+    border: none;
+    border-top: 1px dashed #d8d4c7;
+    margin: 32px 0;
+}
+
+/* ==========================================
+   4. 【HW07 遷移重點】：三處原行內樣式轉成 Class 規則
+   ========================================== */
+/* 原行內樣式第 1 處遷移：閱讀焦點 mark 標籤外觀 */
+.reading-focus {
+    background-color: #ffd8a8;
+    color: #6d2806;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+/* 原行內樣式第 2 處遷移：散步建議提示卡片段落 */
+.route-note {
+    border-left: 4px solid #6b8e23;
+    background-color: #f7faf5;
+    padding: 8px 12px;
+    font-size: 0.92rem;
+    color: #40552b;
+}
+
+/* 原行內樣式第 3 處遷移：頁尾聲明文字淡化 */
+.report-disclaimer {
+    color: #a89f91;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+}
+
+/* ==========================================
+   5. 表格樣式化
+   ========================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95rem;
+    background-color: #ffffff;
+    border: 1px solid #d4cfbe;
+}
+
+caption {
+    caption-side: top;
+    text-align: left;
+    font-weight: bold;
+    color: #4a3427;
+    padding-bottom: 10px;
+    font-size: 1rem;
+}
+
+thead {
+    background-color: #e5ede3;
+}
+
+th, td {
+    border: 1px solid #d4cfbe;
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th[scope="col"] {
+    color: #264232;
+    font-weight: 600;
+}
+
+th[scope="row"] {
+    background-color: #faf9f6;
+    color: #4a3427;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fbfbf9;
+}
+
+/* ==========================================
+   6. 響應式多媒體與圖片
+   ========================================== */
+figure {
+    margin: 20px 0;
+    padding: 0;
+}
+
+.responsive-media {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    border: 1px solid #dfdacf;
+}
+
+.video-container, .map-container {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #dfdacf;
+    margin-bottom: 10px;
+}
+
+.video-container iframe, .map-container iframe {
+    display: block;
+    width: 100%;
+    border: none;
+}
+
+figcaption {
+    margin-top: 8px;
+    font-size: 0.88rem;
+    color: #666666;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   7. 補充資訊與頁尾
+   ========================================== */
+#tips {
+    background-color: #edf5eb;
+    border-left: 6px solid #45785a;
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 28px 0;
+}
+
+#tips h2 {
+    border-left: none;
+    padding-left: 0;
+    margin-bottom: 12px;
+    color: #244d34;
+}
+
+details summary {
+    font-weight: 600;
+    cursor: pointer;
+    color: #244d34;
+    padding: 6px 0;
+}
+
+details[open] summary {
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #2f2723;
+    color: #cdc6be;
+    padding: 28px 32px;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid #4a3e38;
+    border-radius: 0 0 8px 8px;
+}
+
+footer p {
+    margin: 6px 0;
+    color: #cdc6be;
+}
+
+footer a {
+    color: #e5a77b;
+}
+
+.back-to-top {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 5px 14px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.back-to-top:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+}
+
+/* ==========================================
+   8. 媒體查詢 (視窗小於 600px 行動裝置適應)
+   ========================================== */
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+
+    .page-wrapper {
+        margin: 0;
+        border-radius: 0;
+        border: none;
+    }
+
+    #top, main, nav, footer {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    #top {
+        border-radius: 0;
+    }
+
+    #top h1 {
+        font-size: 1.45rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    th, td {
+        padding: 8px 10px;
+        font-size: 0.88rem;
+    }
+}
